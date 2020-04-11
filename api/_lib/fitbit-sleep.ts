@@ -25,11 +25,13 @@ interface FitbitSleepAPIResponse {
 }
 
 export interface FitbitUserData {
+  /* eslint-disable camelcase */
   access_token: string;
   expires_in: number;
   refresh_token: string;
   user_id: string;
   scope: string;
+  /* eslint-enable camelcase */
 }
 
 class FitbitGetTokenAPIError extends Error {

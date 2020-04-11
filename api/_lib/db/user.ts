@@ -27,7 +27,7 @@ export async function getUserToken(userID: string): Promise<string> {
 
   if (item) {
     const { access_token: token } = item;
-    if (token) return token;
+    if (token) { return token; }
   }
   throw new Error('token not defined');
 }

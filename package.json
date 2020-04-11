@@ -1,34 +1,36 @@
 {
   "name": "fitbit-friends",
-  "version": "0.1",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "db": "docker run --name fitbit-dynamodb -p 8000:8000 amazon/dynamodb-local -jar DynamoDBLocal.jar -sharedDb",
-    "lint": "eslint . --ext .ts,.tsx",
-    "test": "jest"
+    "lint": "eslint . --ext .js,.ts,.ts,.vue",
+    "test": "jest",
+    "dev": "nuxt"
   },
   "devDependencies": {
+    "@nuxt/typescript-build": "^0.6.0",
+    "@nuxtjs/eslint-config-typescript": "^1.0.2",
     "@types/jest": "^25.1.4",
     "@types/luxon": "^1.21.0",
     "@types/node": "^13.7.6",
-    "@typescript-eslint/eslint-plugin": "^2.21.0",
-    "@typescript-eslint/parser": "^2.21.0",
     "eslint": "^6.8.0",
-    "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-jest": "^23.8.2",
     "jest": "^25.1.0",
     "jest-ts-auto-mock": "^1.0.11",
-    "ts-auto-mock": "^1.5.7",
+    "ts-auto-mock": "^1.6.0",
     "ts-jest": "^25.2.1",
     "ttypescript": "^1.5.10",
-    "typescript": "^3.8.2"
+    "typescript": "^3.8.2",
+    "vue-eslint-parser": "^7.0.0"
   },
   "dependencies": {
     "@now/node": "^1.4.1",
+    "@nuxt/typescript-runtime": "^0.4.0",
     "aws-sdk": "^2.627.0",
     "dotenv": "^8.2.0",
-    "eslint-config-airbnb-typescript": "^7.2.0",
     "fitbit-node": "^2.2.0",
-    "luxon": "^1.22.0"
+    "luxon": "^1.22.0",
+    "nuxt": "^2.12.1",
+    "vue": "^2.6.11"
   }
 }

@@ -30,7 +30,7 @@ const makeTableParams = (tableData: TableDefinition): DynamoDB.CreateTableInput 
   },
 });
 
-export async function createTableIfNotExists(): Promise<void[]> {
+export function createTableIfNotExists(): Promise<void[]> {
   return Promise.all(Object.keys(TABLES).map(async (k) => {
     try {
       await rawClient.describeTable({ TableName: k }).promise();

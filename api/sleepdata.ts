@@ -7,7 +7,6 @@ import { getUserToken } from './_lib/db/user';
 
 require('dotenv').config();
 
-
 export default async (request: NowRequest, response: NowResponse): Promise<void> => {
   await createTableIfNotExists();
   const { userID } = request.query;

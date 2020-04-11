@@ -1,6 +1,6 @@
 module.exports = {
   collectCoverage: true,
-  roots: ['<rootDir>/api', '<rootDir/lib>'],
+  roots: ['<rootDir>/api'],
   transform: {
     '^.+\\.tsx?$': 'ts-jest',
   },
