@@ -15,7 +15,7 @@ resource "aws_dynamodb_table" "friends" {
   read_capacity  = 10
   write_capacity = 5
   hash_key       = "user_id"
-  sort_key       = "friend_user_id"
+  range_key      = "friend_user_id"
 
   attribute {
     name = "user_id"
