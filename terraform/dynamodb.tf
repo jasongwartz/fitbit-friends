@@ -5,7 +5,7 @@ locals {
   ])
 }
 
-resource "aws_dynamodb_table" "users" {
+resource "aws_dynamodb_table" "users_table" {
   for_each = local.environments
 
   name           = "${each.value}_users"
@@ -19,7 +19,7 @@ resource "aws_dynamodb_table" "users" {
   }
 }
 
-resource "aws_dynamodb_table" "friends" {
+resource "aws_dynamodb_table" "friends_table" {
   for_each = local.environments
 
   name           = "${each.value}_friends"
