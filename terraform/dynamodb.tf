@@ -1,5 +1,14 @@
+locals {
+  environments = toset([
+    "prod",
+    "preview",
+  ])
+}
+
 resource "aws_dynamodb_table" "users" {
-  name           = "users"
+  for_each = local.environments
+
+  name           = "${each.value}_users"
   read_capacity  = 10
   write_capacity = 5
   hash_key       = "user_id"
@@ -11,7 +20,9 @@ resource "aws_dynamodb_table" "users" {
 }
 
 resource "aws_dynamodb_table" "friends" {
-  name           = "friends"
+  for_each = local.environments
+
+  name           = "${each.value}_friends"
   read_capacity  = 10
   write_capacity = 5
   hash_key       = "user_id"
