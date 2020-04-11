@@ -6,8 +6,9 @@ module.exports = {
   ],
   rules: {
     indent: ['error', 2],
-    'comma-dangle': ['error', 'always-multiline'],
     semi: ["error", "always"],
+    quotes: ["error", "single"],
+    'comma-dangle': ['error', 'always-multiline'],
     'space-before-function-paren': ["error", {"anonymous": "always", "named": "never", "asyncArrow": "always"}],
     '@typescript-eslint/no-inferrable-types': "off",
   },
