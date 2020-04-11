@@ -57,7 +57,7 @@ jobs:
 
       - name: 'Terraform Apply'
         uses: hashicorp/terraform-github-actions@master
-        if: github.ref == 'master'
+        if: github.ref == 'refs/heads/master'
         with:
           tf_actions_version: 0.12.9
           tf_actions_subcommand: 'apply'
