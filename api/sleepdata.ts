@@ -2,13 +2,9 @@ import { DateTime } from 'luxon';
 import { NowRequest, NowResponse } from '@now/node';
 
 import { retrieveSleepData } from './_lib/fitbit-sleep';
-import { createTableIfNotExists } from './_lib/db/tables';
 import { getUserToken } from './_lib/db/user';
 
-require('dotenv').config();
-
 export default async (request: NowRequest, response: NowResponse): Promise<void> => {
-  await createTableIfNotExists();
   const { userID } = request.query;
 
   if (!userID) {

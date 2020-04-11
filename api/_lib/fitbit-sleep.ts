@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 import { DateTime } from 'luxon';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires

@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 import { DynamoDB, config } from 'aws-sdk';
 
 config.update({
@@ -6,7 +8,7 @@ config.update({
   region: 'nil',
 });
 
-const endpoint = process.env.DYNAMODB_ENDPOINT || 'http://localhost:8000';
+const endpoint = process.env.DYNAMODB_ENDPOINT || undefined;
 
 export const rawClient = new DynamoDB({ endpoint });
 

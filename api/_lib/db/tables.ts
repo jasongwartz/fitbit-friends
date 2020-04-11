@@ -1,4 +1,3 @@
-
 interface TableDefinition {
   tableName: string;
   primaryKey: string;

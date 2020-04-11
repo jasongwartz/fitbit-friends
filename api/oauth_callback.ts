@@ -1,13 +1,9 @@
 import { NowRequest, NowResponse } from '@now/node';
 
 import { getUserToken } from './_lib/fitbit-sleep';
-import { createTableIfNotExists } from './_lib/db/tables';
 import { storeUserToken } from './_lib/db/user';
 
-require('dotenv').config();
-
 export default async (request: NowRequest, response: NowResponse): Promise<void> => {
-  await createTableIfNotExists();
   const { code: fitbitAuthCode } = request.query;
 
   if (!fitbitAuthCode) {
