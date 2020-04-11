@@ -7,3 +7,4 @@ const x: string = 'asdf';
 console.log('in script', x);
 // use TypeScript here
 </script>
+ 

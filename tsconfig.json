@@ -1,8 +1,4 @@
 {
-  "exclude": [
-    "node_modules"
-  ],
-
   "compilerOptions": {
     "plugins": [
       { "transform": "ts-auto-mock/transformer", "cacheBetweenTests": false }
