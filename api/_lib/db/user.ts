@@ -6,6 +6,8 @@ import { TABLES } from './tables';
 
 const { users: USER_TABLE } = TABLES;
 
+// TODO: write tests - https://jestjs.io/docs/en/dynamodb
+
 export async function storeUserToken(userData: FitbitUserData): Promise<void> {
   const putItem: DynamoDB.DocumentClient.PutItemInput = {
     TableName: USER_TABLE.tableName,

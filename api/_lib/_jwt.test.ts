@@ -12,6 +12,13 @@ describe('JWT helpers', () => {
   const mockUser: FitbitUserData = createMock<FitbitUserData>();
 
   describe('getUserIDFromJWTCookie', () => {
+    it('throws an error if signing secret not present', () => {
+      const token = createJWTCookie(mockUser).token;
+      process.env.JWT_SIGNING_SECRET = '';
+      expect(() => getUserIDFromJWTCookie(token)).toThrow();
+      process.env.JWT_SIGNING_SECRET = testSigningSecret;
+    });
+
     it('verifies if the jwt is signed correctly', () => {
       const token = createJWTCookie(mockUser).token;
       expect(() => getUserIDFromJWTCookie(token)).not.toThrow();
@@ -41,6 +48,12 @@ describe('JWT helpers', () => {
 
   describe('createToken', () => {
     const expiryTest = Duration.fromObject({ hours: 1 }).as('seconds');
+
+    it('throws an error if signing secret not present', () => {
+      process.env.JWT_SIGNING_SECRET = '';
+      expect(() => createJWTCookie(mockUser)).toThrow();
+      process.env.JWT_SIGNING_SECRET = testSigningSecret;
+    });
 
     it('expiry falls back to default', () => {
       const token = createJWTCookie(mockUser);

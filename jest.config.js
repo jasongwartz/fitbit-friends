@@ -1,5 +1,11 @@
+const coverageDirectory = `${process.cwd()}/coverage`;
+
+console.info('Coverage directory:', coverageDirectory);
+console.info('Coverage HTML report:', `${coverageDirectory}/lcov-report/index.html`);
+
 module.exports = {
   collectCoverage: true,
+  coverageDirectory,
   roots: ['<rootDir>/api'],
   transform: {
     '^.+\\.tsx?$': 'ts-jest',

@@ -7,7 +7,7 @@ import { FitbitUserData } from './fitbit-sleep';
 export const cookieTokenName = 'token';
 export const defaultTokenTTL = Duration.fromObject({ days: 30 }).as('seconds');
 
-export interface TokenContents {
+interface TokenContents {
   fitbitUserID: string;
 }
 
