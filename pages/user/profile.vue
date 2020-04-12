@@ -19,7 +19,12 @@ export default Vue.extend({
   components: {
     Header,
   },
-  async fetch() {
+  data() {
+    return {
+      sleepData: 'please wait',
+    };
+  },
+  async mounted() {
     try {
       const data = await fetch('/api/sleepdata');
       this.sleepData = await data.json();
@@ -27,11 +32,6 @@ export default Vue.extend({
       console.log(err);
       this.sleepData = err;
     }
-  },
-  data() {
-    return {
-      sleepData: 'please wait',
-    };
   },
 });
 </script>
