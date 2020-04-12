@@ -12,25 +12,26 @@
 </template>
 
 <script lang="ts">
-import Header from '~/components/header';
+import Vue from 'vue';
+import Header from '~/components/header.vue';
 
-export default {
+export default Vue.extend({
   components: {
     Header,
+  },
+  async fetch() {
+    try {
+      const data = await fetch('/api/sleepdata');
+      this.sleepData = await data.json();
+    } catch (err) {
+      console.log(err);
+      this.sleepData = err;
+    }
   },
   data() {
     return {
       sleepData: 'please wait',
     };
   },
-  async mounted() {
-    try {
-      const data = await fetch('/api/sleepdata');
-      this.sleepData = await data.json();
-    } catch (err) {
-      console.error(err);
-      return 'unable to fetch data';
-    }
-  },
-};
+});
 </script>
