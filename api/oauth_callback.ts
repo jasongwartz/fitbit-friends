@@ -2,6 +2,8 @@ import { NowRequest, NowResponse } from '@now/node';
 
 import { getUserToken } from './_lib/fitbit-sleep';
 import { storeUserToken } from './_lib/db/user';
+import { createJWTCookie, cookieTokenName } from './_lib/jwt';
+import { serialize } from 'cookie';
 
 export default async (request: NowRequest, response: NowResponse): Promise<void> => {
   const { code: fitbitAuthCode } = request.query;
@@ -14,9 +16,16 @@ export default async (request: NowRequest, response: NowResponse): Promise<void>
     const userData = await getUserToken(
       Array.isArray(fitbitAuthCode) ? fitbitAuthCode[0] : fitbitAuthCode,
     );
+
     await storeUserToken(userData);
+    const jwtData = createJWTCookie(userData);
+
+    const jwtCookie = serialize(cookieTokenName, jwtData.token, {
+      maxAge: jwtData.expiresIn,
+    });
 
     response.writeHead(302, {
+      'Set-Cookie': jwtCookie,
       Location: '/api/sleepdata',
     });
     response.end();

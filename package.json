@@ -11,7 +11,10 @@
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.6.0",
+    "@types/cookie": "^0.3.3",
     "@types/jest": "^25.1.4",
+    "@types/jsonwebtoken": "^8.3.9",
+    "@types/jwt-decode": "^2.2.1",
     "@types/luxon": "^1.21.0",
     "@types/node": "^13.7.6",
     "@typescript-eslint/eslint-plugin": "^2.27.0",
@@ -30,8 +33,11 @@
     "@now/node": "^1.4.1",
     "@nuxt/typescript-runtime": "^0.4.0",
     "aws-sdk": "^2.627.0",
+    "cookie": "^0.4.0",
     "dotenv": "^8.2.0",
     "fitbit-node": "^2.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "jwt-decode": "^2.2.0",
     "luxon": "^1.22.0",
     "nuxt": "^2.12.1",
     "vue": "^2.6.11"

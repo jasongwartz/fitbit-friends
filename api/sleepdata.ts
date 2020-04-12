@@ -3,9 +3,10 @@ import { NowRequest, NowResponse } from '@now/node';
 
 import { retrieveSleepData } from './_lib/fitbit-sleep';
 import { getUserToken } from './_lib/db/user';
+import { getUserIDFromJWTCookie, cookieTokenName } from './_lib/jwt';
 
 export default async (request: NowRequest, response: NowResponse): Promise<void> => {
-  const { userID } = request.query;
+  const userID = getUserIDFromJWTCookie(request.cookies[cookieTokenName]);
 
   if (!userID) {
     response.status(400).send({ error: 'param userID is required' });

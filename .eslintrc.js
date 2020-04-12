@@ -11,5 +11,7 @@ module.exports = {
     'comma-dangle': ['error', 'always-multiline'],
     'space-before-function-paren': ["error", {"anonymous": "always", "named": "never", "asyncArrow": "always"}],
     '@typescript-eslint/no-inferrable-types': "off",
+    "object-curly-spacing": ["error", "always"],
+    "array-bracket-spacing": ["error", "never"],
   },
 };
