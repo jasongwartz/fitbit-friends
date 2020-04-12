@@ -10,7 +10,15 @@ const config: Configuration = {
   modules: [
     '@nuxtjs/bulma',
   ],
-  buildModules: ['@nuxt/typescript-build'],
+  buildModules: [
+    ['@nuxt/typescript-build', {
+      typeCheck: {
+        memoryLimit: 4096,
+        workers: 2,
+      },
+      ignoreNotFoundWarnings: false,
+    }],
+  ],
 
   typescript: {
     typeCheck: {
