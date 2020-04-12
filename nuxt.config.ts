@@ -13,7 +13,7 @@ const config: Configuration = {
   buildModules: [
     ['@nuxt/typescript-build', {
       typeCheck: {
-        memoryLimit: 4096,
+        memoryLimit: 1024,
         workers: 2,
       },
       ignoreNotFoundWarnings: false,
