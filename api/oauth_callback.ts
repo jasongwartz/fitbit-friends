@@ -26,7 +26,7 @@ export default async (request: NowRequest, response: NowResponse): Promise<void>
 
     response.writeHead(302, {
       'Set-Cookie': jwtCookie,
-      Location: '/api/sleepdata',
+      Location: '/user/profile',
     });
     response.end();
   } catch (e) {
