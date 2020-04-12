@@ -32,6 +32,7 @@
   "dependencies": {
     "@now/node": "^1.4.1",
     "@nuxt/typescript-runtime": "^0.4.0",
+    "@nuxtjs/bulma": "^1.2.7",
     "aws-sdk": "^2.627.0",
     "cookie": "^0.4.0",
     "dotenv": "^8.2.0",
