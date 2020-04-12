@@ -6,8 +6,8 @@
     "db": "docker run --name fitbit-dynamodb -p 8000:8000 amazon/dynamodb-local -jar DynamoDBLocal.jar -sharedDb",
     "lint": "eslint . --ext .js,.ts,.ts,.vue",
     "test": "jest",
-    "generate": "nuxt generate",
-    "dev": "nuxt"
+    "generate": "nuxt-ts generate",
+    "dev": "nuxt-ts"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.6.0",

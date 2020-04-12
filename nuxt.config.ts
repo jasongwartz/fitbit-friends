@@ -1,4 +1,6 @@
-export default {
+import { Configuration } from '@nuxt/types';
+
+const config: Configuration = {
   head: {
     title: 'Fitbit Friends!',
   },
@@ -8,11 +10,13 @@ export default {
   modules: [
     '@nuxtjs/bulma',
   ],
-
   buildModules: ['@nuxt/typescript-build'],
+
   typescript: {
     typeCheck: {
       eslint: true,
     },
   },
 };
+
+export default config;
