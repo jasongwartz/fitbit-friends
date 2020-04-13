@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
-    "db": "docker run --name fitbit-dynamodb -p 8000:8000 amazon/dynamodb-local -jar DynamoDBLocal.jar -sharedDb",
+    "devdb": "docker run --name fitbit-dynamodb -p 8000:8000 amazon/dynamodb-local -jar DynamoDBLocal.jar -sharedDb",
+    "devdb-tables": "./tools/create_dynamo_tables.sh",
     "lint": "eslint . --ext .js,.ts,.ts,.vue",
     "test": "jest",
     "generate": "nuxt-ts generate",
