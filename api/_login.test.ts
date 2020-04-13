@@ -4,7 +4,7 @@ import { On, method } from 'ts-auto-mock/extension';
 import { NowRequest, NowResponse } from '@now/node';
 
 import * as loginHandler from './login';
-import * as jwt from './_lib/jwt';
+import * as jwt from './jwt/jwt';
 
 describe('redirectTo', () => {
   const mockRes: NowResponse = createMock<NowResponse>();

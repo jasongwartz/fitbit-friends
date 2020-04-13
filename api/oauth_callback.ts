@@ -2,7 +2,7 @@ import { NowRequest, NowResponse } from '@now/node';
 
 import { getUserToken } from './_lib/fitbit-sleep';
 import { storeUserToken } from './_lib/db/user';
-import { createJWTCookie, cookieTokenName } from './_lib/jwt';
+import { createJWTCookie, cookieTokenName } from './jwt/jwt';
 import { serialize } from 'cookie';
 
 export default async (request: NowRequest, response: NowResponse): Promise<void> => {

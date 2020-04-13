@@ -6,7 +6,7 @@ const testSigningSecret = 'asdf';
 process.env.JWT_SIGNING_SECRET = testSigningSecret;
 
 import { createJWTCookie, defaultTokenTTL, getUserIDFromJWTCookie } from './jwt';
-import { FitbitUserData } from './fitbit-sleep';
+import { FitbitUserData } from '~/api/_lib/fitbit/user';
 
 describe('JWT helpers', () => {
   const mockUser: FitbitUserData = createMock<FitbitUserData>();

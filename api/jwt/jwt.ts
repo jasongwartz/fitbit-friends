@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 import jwtDecode from 'jwt-decode';
 import { Duration } from 'luxon';
 
-import { FitbitUserData } from './fitbit-sleep';
+import { FitbitUserData } from '~/api/_lib/fitbit/user';
 
 export const cookieTokenName = 'token';
 export const defaultTokenTTL = Duration.fromObject({ days: 30 }).as('seconds');
