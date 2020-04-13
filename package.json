@@ -27,6 +27,7 @@
     "jest-ts-auto-mock": "^1.0.11",
     "ts-auto-mock": "^1.6.0",
     "ts-jest": "^25.2.1",
+    "ts-node": "^8.8.2",
     "ttypescript": "^1.5.10",
     "typescript": "^3.8.2"
   },
