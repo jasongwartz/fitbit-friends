@@ -1,6 +1,6 @@
 import { NowRequest, NowResponse } from '@now/node';
 
-import { getUserToken } from './_lib/fitbit-sleep';
+import { getUserToken } from './_lib/fitbit/user';
 import { storeUserToken } from './_lib/db/user';
 import { createJWTCookie, cookieTokenName } from './jwt/jwt';
 import { serialize } from 'cookie';

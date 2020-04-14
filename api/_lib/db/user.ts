@@ -1,6 +1,6 @@
 import { DynamoDB } from 'aws-sdk';
 
-import { FitbitUserData } from '../fitbit-sleep';
+import { FitbitUserData } from '../fitbit/user';
 import { documentClient } from './client';
 import { TABLES } from './tables';
 
