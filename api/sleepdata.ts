@@ -3,7 +3,7 @@ import { NowRequest, NowResponse } from '@now/node';
 
 import { retrieveSleepData } from './_lib/fitbit/sleep';
 import { getUserToken } from './_lib/db/user';
-import { getUserIDFromJWTCookie, cookieTokenName } from './jwt/jwt';
+import { getUserIDFromJWTCookie, cookieTokenName } from './_lib/jwt/jwt';
 
 export default async (request: NowRequest, response: NowResponse): Promise<void> => {
   const userID = getUserIDFromJWTCookie(request.cookies[cookieTokenName]);

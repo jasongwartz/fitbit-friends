@@ -1,7 +1,7 @@
 import { NowRequest, NowResponse } from '@now/node';
 
 import { getAuthURL } from './_lib/fitbit/auth';
-import { getUserIDFromJWTCookie, cookieTokenName } from './jwt/jwt';
+import { getUserIDFromJWTCookie, cookieTokenName } from './_lib/jwt/jwt';
 
 export const redirectTo = (response: NowResponse, path: string) => {
   response.writeHead(302, {
