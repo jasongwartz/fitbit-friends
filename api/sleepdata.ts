@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon';
 import { NowRequest, NowResponse } from '@now/node';
 
-import { retrieveSleepData } from './_lib/fitbit-sleep';
+import { retrieveSleepData } from './_lib/fitbit/sleep';
 import { getUserToken } from './_lib/db/user';
 import { getUserIDFromJWTCookie, cookieTokenName } from './jwt/jwt';
 
