@@ -2,6 +2,7 @@ import { NowRequest, NowResponse } from '@now/node';
 
 import { getAuthURL } from './_lib/fitbit/auth';
 import { getUserIDFromJWTCookie, cookieTokenName } from './_lib/jwt/jwt';
+import wrapMiddleware from './_lib/middleware';
 
 export const redirectTo = (response: NowResponse, path: string) => {
   response.writeHead(302, {
@@ -10,7 +11,7 @@ export const redirectTo = (response: NowResponse, path: string) => {
   response.end();
 };
 
-export default (request: NowRequest, response: NowResponse) => {
+export default wrapMiddleware((request: NowRequest, response: NowResponse) => {
   try {
     const userID = getUserIDFromJWTCookie(request.cookies[cookieTokenName]);
     if (userID) {
@@ -24,4 +25,4 @@ export default (request: NowRequest, response: NowResponse) => {
     redirectTo(response, getAuthURL());
     return;
   }
-};
+});

@@ -18,7 +18,6 @@ export type FitbitSleepItems = ReadonlyArray<FitbitSleepItem>
 
 
 export const sumByDay = (dataArray: FitbitSleepItems): FitbitSleepItems => {
-  console.log('before', dataArray);
   const summedByDate = dataArray.reduce((accum: Record<string, FitbitSleepItem>, current) => {
     if (current.dateOfSleep in accum) {
       accum[current.dateOfSleep].minutesAsleep += current.minutesAsleep;
@@ -27,7 +26,6 @@ export const sumByDay = (dataArray: FitbitSleepItems): FitbitSleepItems => {
     }
     return accum;
   }, {});
-  console.log('after', dataArray);
 
   const summedSorted = Object.values(summedByDate).sort((a, b) => (a.dateOfSleep > b.dateOfSleep ? 1 : -1));
   return summedSorted;
@@ -47,12 +45,10 @@ export async function retrieveSleepData(
   // }
 
   const summed = sumByDay(sleepData.sleep);
-  console.log(summed);
 
   const remapped = summed.map((e): FFitbitDataEntry => (
     { date: e.dateOfSleep, minutesAsleep: e.minutesAsleep }
   ));
-  console.log(remapped);
 
   return remapped;
 }
