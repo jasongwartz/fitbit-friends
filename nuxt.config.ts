@@ -10,22 +10,15 @@ const config: Configuration = {
   modules: [
     '@nuxtjs/bulma',
   ],
-  buildModules: [
-    ['@nuxt/typescript-build', {
-      typeCheck: {
-        memoryLimit: 1024,
-        workers: 2,
-      },
-      ignoreNotFoundWarnings: false,
-    }],
-  ],
-  ignore: [
-    'api/**/*',
-  ],
 
   typescript: {
     typeCheck: {
       eslint: true,
+    },
+    loaderOptions: {
+      compileOptions: {
+        ignore: 'api',
+      },
     },
   },
 };
