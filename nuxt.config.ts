@@ -19,6 +19,9 @@ const config: Configuration = {
       ignoreNotFoundWarnings: false,
     }],
   ],
+  ignore: [
+    'api/**/*',
+  ],
 
   typescript: {
     typeCheck: {
