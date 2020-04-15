@@ -1,11 +1,12 @@
 import { DateTime } from 'luxon';
 import { NowRequest, NowResponse } from '@now/node';
 
+import wrapMiddleware from './_lib/middleware';
 import { retrieveSleepData } from './_lib/fitbit/sleep';
 import { getUserToken } from './_lib/db/user';
 import { getUserIDFromJWTCookie, cookieTokenName } from './_lib/jwt/jwt';
 
-export default async (request: NowRequest, response: NowResponse): Promise<void> => {
+export default wrapMiddleware(async (request: NowRequest, response: NowResponse): Promise<void> => {
   const userID = getUserIDFromJWTCookie(request.cookies[cookieTokenName]);
 
   if (!userID) {
@@ -25,4 +26,4 @@ export default async (request: NowRequest, response: NowResponse): Promise<void>
     console.error(e); // eslint-disable-line no-console
     response.status(500).send({ message: 'user not found', error: e });
   }
-};
+});

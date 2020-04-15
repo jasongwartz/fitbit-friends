@@ -1,8 +1,8 @@
 import { NowRequest, NowResponse } from '@now/node';
 
+import wrapMiddleware from './_lib/middleware';
 import { getAuthURL } from './_lib/fitbit/auth';
 import { getUserIDFromJWTCookie, cookieTokenName } from './_lib/jwt/jwt';
-import wrapMiddleware from './_lib/middleware';
 
 export const redirectTo = (response: NowResponse, path: string) => {
   response.writeHead(302, {

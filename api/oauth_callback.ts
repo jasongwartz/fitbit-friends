@@ -1,11 +1,12 @@
 import { NowRequest, NowResponse } from '@now/node';
+import { serialize } from 'cookie';
 
+import wrapMiddleware from './_lib/middleware';
 import { getUserToken } from './_lib/fitbit/user';
 import { storeUserToken } from './_lib/db/user';
 import { createJWTCookie, cookieTokenName } from './_lib/jwt/jwt';
-import { serialize } from 'cookie';
 
-export default async (request: NowRequest, response: NowResponse): Promise<void> => {
+export default wrapMiddleware(async (request: NowRequest, response: NowResponse): Promise<void> => {
   const { code: fitbitAuthCode } = request.query;
 
   if (!fitbitAuthCode) {
@@ -32,4 +33,4 @@ export default async (request: NowRequest, response: NowResponse): Promise<void>
   } catch (e) {
     response.status(500).send({ message: 'user not found', error: e });
   }
-};
+});
