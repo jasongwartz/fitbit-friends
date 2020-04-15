@@ -45,6 +45,7 @@
     "fitbit-node": "^2.2.0",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^2.2.0",
+    "loglevel": "^1.6.8",
     "luxon": "^1.22.0",
     "morgan": "^1.10.0",
     "nuxt": "^2.12.1",

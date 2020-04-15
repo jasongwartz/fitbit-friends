@@ -4,5 +4,9 @@ import cors from 'cors';
 import morgan from 'morgan';
 
 export default function (handler: NowFunction<NowRequest, NowResponse>) {
-  return chain(cors(), morgan(process.env.DEBUG ? 'dev' : 'combined'))(handler);
+  return chain(
+    cors(),
+    morgan('combined', { immediate: true }),
+    morgan(process.env.DEBUG ? 'dev' : 'tiny'),
+  )(handler);
 }
