@@ -4,6 +4,9 @@ const config: Configuration = {
   head: {
     title: 'Fitbit Friends!',
   },
+  server: {
+    host: "0.0.0.0",
+  },
   generate: {
     fallback: true,
   },
